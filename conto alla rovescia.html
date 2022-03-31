@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conto i click che avvengono in 10 secondi</title>
+    <style>
+
+.ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    box-sizing: border-box;
+    width: 15em;
+    height: 3em;
+    font-size: 10px;
+    border-radius: 0.5em;
+    margin: 0.5em;
+    box-shadow: 0 0 1em rgba(0,0,0,0.2);
+    color: white;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    line-height: 3em;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+ul li:nth-child(odd) {
+    background: linear-gradient(to right,rgb(255, 153, 0), rgb(216, 18, 150));
+    text-align: left;
+    padding-left: 5%;
+    transform: perspective(500px) rotateY(30deg);
+}
+
+ul li:nth-child(even) {
+    background: linear-gradient(to left, orange, tomato);
+    text-align: right;
+    padding-right: 10%;
+    transform: perspective(400px) rotateY(-45deg);
+}
+
+ul li:nth-child(odd):hover {
+    transform: perspective(200px) rotateY(45deg);
+    padding-left: 5%;
+}
+
+ul li:nth-child(even):hover {
+    transform: perspective(300px) rotateY(-45deg);
+    padding-right: 5%;
+}
+#miodiv
+{
+  height: 100px;
+  width: 100px;
+  background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<p id="miocountdown"></p>
+<div id="miodiv">
+
+    <ul>
+    <li><button class="button" onclick="contaclick()" class="ul"> start</button></li> 
+     </ul>
+
+        <p id="mioout1"></p>
+    </button>
+
+</div>
+<script>
+    mioIntervallo=setInterval(startCountDown, 1000);
+        let countdown=3;
+        
+        function startCountDown() {
+            document.getElementById("miocountdown").innerHTML=countdown.toString();
+            countdown--;
+            if(countdown==-1)
+            {
+              clearInterval(mioIntervallo);
+            }
+    
+        }       
+    let contatore=0;
+    function contaclick (){
+        contatore++;
+        document .getElementById("mioout1").innerHTML=contatore.toString();
+        cambiasfondoaldiv();
+
+    }
+    function cambiasfondoaldiv(){
+        document.getElementById("miodiv").style.backgroundColor="red";
+    }
+</script>
+</html>
